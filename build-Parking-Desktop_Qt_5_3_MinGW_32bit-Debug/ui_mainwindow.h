@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -34,6 +35,7 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -42,31 +44,59 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(420, 379);
+        MainWindow->resize(509, 470);
+        MainWindow->setStyleSheet(QStringLiteral(""));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         radioButton = new QRadioButton(centralWidget);
         radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setGeometry(QRect(150, 80, 71, 41));
+        radioButton->setGeometry(QRect(370, 240, 81, 41));
+        QFont font;
+        font.setFamily(QStringLiteral("Palatino Linotype"));
+        font.setPointSize(10);
+        font.setBold(true);
+        font.setWeight(75);
+        radioButton->setFont(font);
         radioButton_2 = new QRadioButton(centralWidget);
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-        radioButton_2->setGeometry(QRect(150, 180, 71, 31));
+        radioButton_2->setGeometry(QRect(370, 330, 81, 31));
+        radioButton_2->setFont(font);
         radioButton_3 = new QRadioButton(centralWidget);
         radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
-        radioButton_3->setGeometry(QRect(150, 130, 61, 41));
+        radioButton_3->setGeometry(QRect(370, 280, 81, 41));
+        radioButton_3->setFont(font);
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(140, 230, 71, 41));
+        pushButton->setGeometry(QRect(310, 370, 181, 41));
+        pushButton->setFont(font);
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 10, 81, 31));
+        pushButton_2->setGeometry(QRect(10, 10, 81, 41));
+        pushButton_2->setFont(font);
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(120, 10, 81, 31));
+        pushButton_3->setGeometry(QRect(100, 10, 81, 41));
+        pushButton_3->setFont(font);
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(190, 10, 221, 211));
+        QFont font1;
+        font1.setFamily(QStringLiteral("DejaVu Sans Mono"));
+        font1.setPointSize(8);
+        font1.setBold(false);
+        font1.setItalic(false);
+        font1.setWeight(50);
+        label->setFont(font1);
+        label->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
+"font: 8pt \"DejaVu Sans Mono\";\n"
+"color: rgb(0, 170, 0);\n"
+"\n"
+""));
+        label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 420, 21));
+        menuBar->setGeometry(QRect(0, 0, 509, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -89,6 +119,11 @@ public:
         pushButton->setText(QApplication::translate("MainWindow", "Envoyer", 0));
         pushButton_2->setText(QApplication::translate("MainWindow", "Open", 0));
         pushButton_3->setText(QApplication::translate("MainWindow", "Close", 0));
+        label->setText(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", 0));
     } // retranslateUi
 
 };

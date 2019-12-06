@@ -23,6 +23,7 @@ private slots:
     void on_pushButton_3_clicked();
 
 private:
+    void showStatusMessage(const QString &message);
     Ui::MainWindow *ui;
 };
 

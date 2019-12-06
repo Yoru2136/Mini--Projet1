@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QSerialPort>
+#include <QMessageBox>
 
 QSerialPort serial;
 
@@ -30,6 +31,8 @@ void MainWindow::on_pushButton_clicked()
     {
         QByteArray Rouge("\x15\x7B\x1A\xAA");
         serial.write(Rouge);
+        QString t = ui->label->text();
+        ui->label->setText(t+"\n15 7B 1A AA");
     }
     if(ui->radioButton_2->isChecked())
     {
@@ -45,10 +48,27 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    serial.open(QIODevice::ReadWrite);
+    if(serial.open(QIODevice::ReadWrite))
+    {
+        ui->label->setText("Connecter");
+    }
+    else
+    {
+        ui->label->setText("Erreur");
+    }
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
     serial.close();
+    if(serial.isOpen() == false)
+    {
+        QString t = ui->label->text();
+        ui->label->setText(t+"\nFermer");
+    }
+    else
+    {
+        ui->label->setText("Erreur");
+    }
+
 }
