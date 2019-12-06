@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     serial.setPortName("COM3");
     serial.setBaudRate(QSerialPort::Baud19200);
-    serial.setDataBits(QSerialPort::Data8);
+    serial.setDataBits(QSerialPort::Data8);                         //paramètres du port série
     serial.setParity(QSerialPort::NoParity);
     serial.setStopBits(QSerialPort::OneStop);
     serial.setFlowControl(QSerialPort::NoFlowControl);
@@ -29,25 +29,26 @@ void MainWindow::on_pushButton_clicked()
 {
     if(ui->radioButton->isChecked())
     {
-        QByteArray Rouge("\x15\x7B\x1A\xAA");
+        QByteArray Rouge("\x15\x7B\x1A\xAA");       //allume en rouge le 15 7B
         serial.write(Rouge);
         QString t = ui->label->text();
         ui->label->setText(t+"\n15 7B 1A AA");
     }
     if(ui->radioButton_2->isChecked())
     {
-        QByteArray Vert("\x15\x7B\x19\xA9");
+        QByteArray Vert("\x15\x7B\x19\xA9");    //allume en vert 
         serial.write(Vert);
     }
     if(ui->radioButton_3->isChecked())
     {
-        QByteArray Orange("\x15\x7B\x1B\xAB");
+        QByteArray Orange("\x15\x7B\x1B\xAB");  //allume en orange
         serial.write(Orange);
     }
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
+
     if(serial.open(QIODevice::ReadWrite))
     {
         ui->label->setText("Connecter");
@@ -56,10 +57,14 @@ void MainWindow::on_pushButton_2_clicked()
     {
         ui->label->setText("Erreur");
     }
+
+    serial.open(QIODevice::ReadWrite);  //ouverture du port
+
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
+
     serial.close();
     if(serial.isOpen() == false)
     {
@@ -70,5 +75,8 @@ void MainWindow::on_pushButton_3_clicked()
     {
         ui->label->setText("Erreur");
     }
+
+
+    serial.close();     //fermeture du port
 
 }

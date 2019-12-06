@@ -16,15 +16,17 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();   //bouton envoyer
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_2_clicked();     //bouton open
 
-    void on_pushButton_3_clicked();
+    void on_pushButton_3_clicked();     //bouton close
 
 private:
-    void showStatusMessage(const QString &message);
-    Ui::MainWindow *ui;
+
+
+    Ui::MainWindow *ui;     //interface utilisateur
+
 };
 
 #endif // MAINWINDOW_H
