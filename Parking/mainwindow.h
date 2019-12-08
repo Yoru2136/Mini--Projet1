@@ -1,7 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
+#include <QSerialPort>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -23,9 +24,8 @@ private slots:
     void on_pushButton_3_clicked();     //bouton close
 
 private:
-
-
     Ui::MainWindow *ui;     //interface utilisateur
+    QSerialPort *port;
 
 };
 
