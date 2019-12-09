@@ -1,11 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include <QtSerialPort/QSerialPort>
 #include <QMessageBox>
 #include <QDebug>
 #include <QTimer>
 
+
 #include <QMainWindow>
+#include <QSerialPort>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +31,7 @@ private slots:
     void on_pushButton_3_clicked();     //bouton close
     void lectureDonnees();
 
+
     void on_pushButton_4_clicked();
 
     void on_pushButton_5_clicked();
@@ -36,6 +41,12 @@ private:
     QSerialPort *serial;
     QTimer *timer;
     QByteArray lire;
+
+private:
+    Ui::MainWindow *ui;     //interface utilisateur
+    QSerialPort *port;
+
+
 };
 
 #endif // MAINWINDOW_H
